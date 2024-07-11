@@ -4,7 +4,6 @@ import strawberry
     description="A curated collection of tracks designed for a specific activity or mood."
 )
 
-@strawberry.type
 class Playlist:
     id: strawberry.ID = strawberry.field(description="The ID for the playlist")
     name: str = strawberry.field(description="The name of the playlist")

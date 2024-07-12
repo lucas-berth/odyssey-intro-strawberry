@@ -8,3 +8,4 @@ graphql_router = GraphQLRouter(schema , path="/", graphql_ide="apollo-sandbox")
 
 app.include_router(graphql_router)
 
+#stuck

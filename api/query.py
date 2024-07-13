@@ -44,7 +44,12 @@ class Query:
         
 
 
-    #hello: str = strawberry.field(resolver=get_hello)
+
+#starting with "A playlist's tracks"
+#try implementing by myself first
+    #may need to review schema and queries 
+    #work on adding layers to output
+    #https://www.apollographql.com/tutorials/intro-strawberry/12-playlist-tracks
 
 
 

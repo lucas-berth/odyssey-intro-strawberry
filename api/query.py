@@ -1,7 +1,11 @@
 import strawberry
 from .types.playlist import Playlist
+from .types.track import Track
 from mock_spotify_rest_api_client.api.playlists import get_featured_playlists
 from mock_spotify_rest_api_client.api.playlists import get_playlist
+
+#self trying
+# from mock_spotify_rest_api_client.api.playlists import get_playlists_tracks
 
 #resovler or in OOP terms this is our "getter"
 #def get_hello():
@@ -40,7 +44,33 @@ class Query:
                         id=strawberry.ID(data.id),
                         name=data.name,
                         description=data.description
+                        tracks=[
+                               Track(
+                                      id=strawbery.ID(item.track.id),
+                                      name=item.track.name,
+                                      duration_ms=item.track-duration_ms,
+                                      explicit=item.track.explicit,
+                                      uri=item.track.uri
+                               )
+                               for item in data.tracks.items
+                        ]
                 )
+    
+    # @strawberry.field(description="Retrieves a specific track")
+    # async def tracks(self,
+    #                    id: strawberry.ID,
+    #                    info: strawberry.Info) -> Playlist | None:
+    #                     spotify_client = info.context["spotify_client"]
+    #                     data = await get_playlists_tracks.asyncio(client=spotify_client, playlist_id=id)
+
+    #                     if data is None:
+    #                             return None
+                        
+    #                     return Playlist(
+    #                             id=strawberry.ID(data.id),
+    #                             name=data.name
+
+    #                     )
         
 
 

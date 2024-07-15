@@ -43,12 +43,12 @@ class Query:
                 return Playlist(
                         id=strawberry.ID(data.id),
                         name=data.name,
-                        description=data.description
+                        description=data.description,
                         tracks=[
                                Track(
-                                      id=strawbery.ID(item.track.id),
+                                      id=strawberry.ID(item.track.id),
                                       name=item.track.name,
-                                      duration_ms=item.track-duration_ms,
+                                      duration_ms=item.track.duration_ms,
                                       explicit=item.track.explicit,
                                       uri=item.track.uri
                                )

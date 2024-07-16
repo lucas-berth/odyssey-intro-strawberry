@@ -36,6 +36,7 @@ class Query:
             ) -> Playlist | None:
                 spotify_client = info.context["spotify_client"]
                 data = await get_playlist.asyncio(client=spotify_client, playlist_id=id)
+                _tracks: strawberry.Private[list[Track] | None] = None
                 
                 if data is None:
                         return None
@@ -44,7 +45,7 @@ class Query:
                         id=strawberry.ID(data.id),
                         name=data.name,
                         description=data.description,
-                        tracks=[
+                        _tracks=[
                                Track(
                                       id=strawberry.ID(item.track.id),
                                       name=item.track.name,
